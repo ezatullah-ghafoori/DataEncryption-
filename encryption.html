@@ -1,0 +1,336 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Encrypt your Data</title>
+	<script type="text/javascript">
+		// <!-- these are the encryption chars -->
+		const encryptionChars = ["((RH31()#*#&s%s", "&#&ER2*#&Hdsd", "*UyYY*3VB-__(sdiiD", "FIEUWI(%&#)*#(", "(**#*#&EdhU5(#&IIWW", "FUW@*&#6JF((", "(-)(W))7DWU&&", "!@~~~$&$*@*%<<>??", "?SS??><>_+)!~@*9RE^%&$", ">::)10^#&", "&&*@*#@11#&^@&$@@", "FHUW&&@&@&*!*@12#@*#$&", "#@^#&@*#*$@13LLK*&%%$%$#@(", ")#@(&#%@^&&*#**@*14*($&#^@^%$@", "::L(*#*&#J$^&#^*@GD15#&@)NFJR)@(#&", "*(*#&#@OIFH16#$**%(HFUE)(#)", "....()#$**(>>$)$..$)..17Ii*&j((sFEI", "**&KKD18..)h(d(h)oi()d.<<<", "&#*@&$@#$19#*(@(#&", "Y&*@YDH&**@`~~~~@!//20//Y#*YY", "?//?/21WIWY***", "%*@#$*&#%@*^^#&#22(@(^@&*!%^%^@&", "$#@(*#^^&&@^!%%!^23!@)($(*&!@!*($", "$@&*(??W**@^&*@))24($)@&@^^@((@_)@&?W///", "#@(*&#$(@#*&$(@#25#&@#^^$&&@^#@", "@HFD*@*(!((!26!@)@#&$(!@^&^!*@", "!@_$*!__$*!@(!(@*$^&@27$#@(*!@&$!KLF(@((", "*$W*$HJJU28$*($**#&@&^%*#*", "#&^#*&#*#@29&*$JEJDIW**#&^@^%^@^", "__+@)$**$*#II#*#yu@*)!(#*!~30#*!hhfiuEIiE^&@*~", "#(#^&#%(*#@**&#^@#%#@ESDFGFES31$*#&@^^%&%#$*(@(*#$^^&#@^R%&^", "&#@&*#^UWSSHHYE**#^&$*@^32*&#@*&*^@^&%@^&@#**&&#*&#", "^#^^&**@&&@(((!@GGF*@GGFRKEJE**#@&!@(33((@&&^@&%&^%$*&@#%^*&#@%*&#^", "$*&$^#*&$*&&%&*$*&34#&*@&^#@*#&^%$*&", "#&^@#*&#$*&^@#*&^*&#@$#)!))(#&35*(*#*&@#^^&@!&^$#*((*&#*", "G*#*#UWE*&&*&#JWI(@36#&&*@&&&#KJDFKGDUSD**#((@(&$^%&!)~)(^&$*&", "$#*$#(*$#&&$&$#$&&$(@)!@)(#$(*&37(*@&^%*#*&&#&@!%%!$^&@*&^", "@^#*#&$^^(!UJ@*GGR**!*GtG**!HWI(sujswhj@!iw(*38*@*YYUSUuswg", "IRI((*$(*#**(#*&@*#&*#39*#$(*&*&@&Kdhsi((&#$*", "$#)(@*&^&@#$%*#&40)(@#&$@#^$@#(*$JEi!e@hs@k", "(#*&(@#*#41*#*#^#((@*", "@(@*$(^^^#&(*jjufuf42(**#*kjfefuufUJFUE(#&#&^^", "$*#*$*HDKS*#**$(#&&#43*#&#*(#)#(*&$%*#(@*&#@*&%***", "@#^&$#@*&$*@(*#$&(@#**&$(@*#&$(@*#&FFSASAA44(@*$&@(*&$(*@&^*&@^#*(@*@^&^^#IHFK", "#@$(*@$#^^@((@*&#$*&@^$*&*@%^&^$*45#@*$@(@#&*#$*@#&", "#*&%#$(#&$^@(*@!&*#UJUFEUH46@#(*^*#@&^#@KNDFJHDUIEF(@*^&%(@**^@*&%", "*$$#^&#*&^@*&^#*&^@#$#*&^#*&^47#@*@*&^@&#(&(@#(*&#@$$(*&@#*(KJHFHS**(@^^&@%^", "@#*(&#@$&#^&()!@)(*#&*^@#&^^@((#&&#&^(@()(@*&^@#(^&*#48#@%(*&#@&^#@^!()*(&#(*&^*@t%T%(@(*^&$!@*&^$", "JEJKKUWI**@**&EIKHS(I@(fhsgdg(Q#@&*$*#&*%49UE*#^&&^#*#&#&(JUEH(", "*$#*#**#&#&#&$&(*#@*(@#DJEUwueu#*#@^jdkso50@#*&@#((@*&@kjdj", "#$%&^#$*&^$#)@@#$*^@#^$@51#@$^#&@**@&^$*@jhedjwui", "#&@&$^%**@&@^%%!&#52q@&#*#%@*!**&^#*&^jdujuDg", "(*#$^&#*&@^#$&^#&**@&#^*@&kjhdh53*&#^#*&^@*&#^*#@(^&@(ujs", "*#@#*&#@*((@&$(@(*#$^&#issgsuwk54#(&@^#*&^#@*($@(@&hsjksguuwu", "*@(#^$*@*&^$#*&@^*&^#$(jshskiuwkjhsk55(*@$#((&@#&^*#kjskjshliw*&($@*", "(*#@&^$^#@(*#^$(#*&$(^#$ksjdhs<mieyUo56*(&#(@*#$^&#*&^#ksjhdks", "#&^#^*#kjshdkjhd57iuYwe*#&^#@^%#*(*@&(#*&*&^@&#$", "#*&#*@#$*&^*s&&su&sjksksjhbueugdk58&#&^#$*&^#*#@^*&^#@&^$", "@#@#&*$*&@^#*^@#*kskjhsU59*(@&*^$^^^(*(!)JF", "@&!@&@&^^@YUshsUIRIEY60IEUUEU&#&^@%@*((@&^^", "$#*#$(#*$%$&^#**&$#^%*#61&*#$*@^#$&*^#&^%#@JHGUEIU*#&*^@^%", "*#@&#^&@SHGKJSJSHU#&^@62@#$&&^&@*&^#$*@#()(#&#*UWKW*@#^&#@KJWGH*&", "#@**$&@#^&@#*(&&^#*&#@%^KJSDUJGD*(*@*&#$IHSD**#^&&^#&@(*&#$*&63#@*&$#&^$*&%@##&^@**#&$#(**&#(@*&%$&^%&@^#&^@^@&&^SDGSNNNVV", "*&#@^KDSJ*$^&@64!@^^___@#*^$&#", "#@&^#@*&$^*#*#@&^$&65#@&$^@&#KGG*#**#^&",  "@&^TGGsh*#^@&&@*66@*#&^$&&#*@",  "#^&&#*(@(((#&&&!!~~~67*#K*#^^$#u^^^@",  "&$@#^&&#&*@(68*@(*&#^^@*&#U", "$^#&**(@(69*$(*@#^&@#**&^$", "&@#*&&#@((@#*^^$&@*70(@#*#@$^*#@*&#@$^", "71"];
+		// these are the alphabets and more human chars 
+		const unEncryptedChars = ['A', 'a', 'B', 'b', 'C', 'c', 'D', 'd', 'E', 'e', 'F', 'f', 'G', 'g', 'H', 'h', 'I', 'i', 'J', 'j', 'K', 'k', 'L', 'l', 'M', 'm', 'N', 'n', 'O', 'o', 'P', 'p', 'Q', 'q', 'R', 'r', 'S', 's', 'T', 't', 'U', 'u', 'V', 'v', 'W', 'w', 'X', 'x', 'Y', 'y', 'Z', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ' ',  '{', '}', ':', 'COMMA', '\\', '\'', '"']
+
+		
+	</script>
+	<script type="text/javascript">
+		function encryption (data){
+			data = data.split('');
+			data.forEach((e, i)=>{
+				e = e === ','? "COMMA": e;
+				data[i] = encryptionChars[unEncryptedChars.indexOf(e)];
+			})
+			data = data.join()
+
+			return data
+		}
+
+
+		function decryption(data) {
+			data = data.split(',')
+
+			data.forEach((e, i)=>{
+				e.replace(',', '')
+
+				data[i] = unEncryptedChars[encryptionChars.indexOf(e)]
+			})
+			data = data.join()
+			data = data.replace(/,/g, '');
+			return data.replace('COMMA', ',')
+		}
+	</script>
+	<noscript>
+		<h1>You Need to have JavaScript enable to visit this page!</h1>
+		<h2>THANK YOU!</h2>
+	</noscript>
+	<style type="text/css">
+
+		:root{
+			--body-background_color: #171d28;	
+			--body-font_color1: #ffffff;
+			--body-font_color2: #78a2ef;
+			--Textarea-bg_color: #31476a;
+		}
+
+
+		*{
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+		}
+
+		body{
+			height: 100vh;
+			width: 100%;
+			background: var(--body-background_color);
+		}
+
+		nav{
+			width: 100%;
+			background: var(--Textarea-bg_color);
+			color: var(--body-font_color1);
+			font-size: 2.5vw;
+			padding: 15px;
+		}
+
+		main{
+			height: 100%;
+			width: 100%;
+			background: var(--body-background_color);
+			color: var(--body-font_color1)
+		}
+		.mainHolder{
+			width: 100%;
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			padding-top: 10px;
+		}
+		form{
+			width: 80%;
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+		}
+		.DataInputHolder{
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+		}
+		.encryptedDataHolder{
+			width: 80%;
+			display: flex;
+			flex-direction: column;
+		}
+		.dataInputPasswordHolder{
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+		}
+		textarea{
+			width: 100%;
+			height: 200px;
+			resize: none;
+			color: var(--body-font_color1);
+			border: 1px solid var(--body-font_color1);
+			border-radius: 10px;
+			padding: 10px;
+			background: none;
+			transition: 500ms;
+		}
+		textarea:focus{
+			outline: none;
+			background: var(--Textarea-bg_color);
+			border: none;
+
+		}
+		.btns{
+			height: 30px;
+			border-radius: 10px;
+			border: 0.1px solid var(--body-font_color1);
+			background: none;
+			color: var(--body-font_color1);
+			transition: 200ms;
+			width: 100%;
+		}
+		.btns:active{
+			outline: none;
+			background: var(--Textarea-bg_color);
+			border: none;
+		}
+		.btns:focus{
+			outline: none;
+		}
+		.password{
+			height: 40px;
+			border-radius: 10px;
+			border: 1px solid var(--body-font_color1);
+			background: none;
+			padding: 10px;
+			transition: 500ms;
+			color: var(--body-font_color1)
+
+		}
+		.password:focus{
+			outline: none;
+			background: var(--Textarea-bg_color);
+			border: none;
+		}
+		.alert{
+			padding: 0;
+			padding: 5px 8px;
+			border-radius: 50%;
+			background: red;
+			font-size: 2vw;
+			color: black;
+			display: none;
+		}
+		.showAlert{
+			display: inline;
+		}
+		.encryptionPassHolder{
+			position: absolute;
+			background: var(--Textarea-bg_color);
+			width: 80%;
+			height: 30%;
+			left: 10%;
+			top: 40%;
+			padding: 10px;
+			border-radius: 20px;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			gap: 10px;
+			display: none;
+
+		}
+		#encryptionPass{
+			height: 30px;
+			border-radius: 10px;
+			background: none;
+			border: 1px solid var(--body-font_color1);
+			padding: 10px;
+			color: var(--body-font_color1);
+			transition: 500ms;
+		}
+		#encryptionPass:focus{
+			outline: none;
+			background: var(--body-background_color);
+			border: none;
+		}
+		#encryptionPassBtn{
+			height: 30px;
+			border-radius: 10px;
+			border: none;
+			transition: 200ms;
+		}
+
+		#encryptionPassBtn:active{
+			outline: none;
+			background: var(--Textarea-bg_color);
+			border: none;
+		}
+		#encryptionPassBtn:focus{
+			outline: none;
+		}
+		.showEncryptionPassHolder{
+			display: flex;
+		}
+		.decryptionBtns{
+			width: 100%;
+			display: flex;
+			gap: 10px;
+			align-items: center;
+			justify-content: center;
+		}
+	</style>
+<body>
+	<nav>
+		<h1>Encrypt all Your Nacessary Data And then store it!</h1>
+	</nav>
+	<main>
+		<div class="mainHolder">
+
+			<form>
+				<div class="DataInputHolder">
+					<label for="DataInput">Encrypt Your Data:</label>
+					<br>
+					<textarea id="DataInput" class="DataInput" placeholder="Add your Data!" ></textarea>
+					<br>
+				</div>
+				<div class="dataInputPasswordHolder">
+					<label for="password">Add A password for your Data: <span class="alert" title="Please Add a Password!">x</span></label><br>
+					<input type="password" id="password" class="password" placeholder="Add A Password For Your Data!" >
+					<br>
+				</div>
+				<input type="button" id="DataInputBTN" class="btns DataInputBTN" value="Encrypt"> 
+				<br>
+			</form>
+
+			<div class="encryptedDataHolder">
+				<label for="EncryptInput">Decrypt Your Data:</label>
+				<br>
+				<textarea id="EncryptInput" placeholder="Add Your Encrypted Data!"></textarea>
+				<br>
+				<div class="decryptionBtns">
+					<input type="button" id="DecryptBTN" class="btns" value="Decrypt">
+					<input type="button" id="copyBtn" class="btns" value="Copy">
+					
+				</div>
+			</div>
+		</div>
+
+		<div class="encryptionPassHolder">
+			<label for="encryptionPass">Enter Your Password:<span class="alert alert2" title="Inccorect Password!">x</span></label>
+			<input type="password" id="encryptionPass">
+			<input type="button" id="encryptionPassBtn" class="encryptionPassbtn" value="OK">
+		</div>
+	</main>
+
+
+
+
+	<script type="text/javascript">
+		// Developed By Ezatullah Ghafoori  2023
+
+
+
+		const dataInput = document.querySelector('#DataInput')
+		const dataInputBtn = document.querySelector('#DataInputBTN')
+		const passInput = document.querySelector('#password')
+		const EncryptInput = document.querySelector('#EncryptInput')
+		const EncryptBtn = document.querySelector('#DecryptBTN')
+		const alert = document.querySelector('.alert');
+		const encryptionPassHolder = document.querySelector('.encryptionPassHolder')
+		const encryptionPass = document.querySelector('#encryptionPass');
+		const encryptionPassBtn = document.querySelector('#encryptionPassBtn');
+		const alert2 = document.querySelector('#alert2');
+		const copy = document.querySelector('#copyBtn');
+
+
+
+		dataInputBtn.addEventListener('click', ()=>{
+			if(passInput.value){
+				let dataOb = {
+					password: passInput.value,
+					data: dataInput.value
+				}
+
+				dataOb = JSON.stringify(dataOb)
+				// console.log(dataOb)
+			 	// EncryptInput.value = encryption(passInput.value)
+			 	EncryptInput.value = encryption(dataOb)
+
+			}else{
+				alert.classList.add('showAlert')
+			}
+		}) 
+
+		let dataObject;
+
+		EncryptBtn.addEventListener('click', ()=>{
+			dataObject = decryption(EncryptInput.value)
+			// console.log(dataObject)
+			dataObject = JSON.parse(dataObject);
+
+			encryptionPassHolder.classList.add('showEncryptionPassHolder')
+
+
+		})
+		encryptionPassBtn.addEventListener('click', ()=>{
+			console.log(encryptionPass.value === dataObject.password)
+			if(encryptionPass.value === dataObject.password){
+				dataInput.value = dataObject.data;
+				encryptionPassHolder.classList.remove('showEncryptionPassHolder')
+			}else{
+				document.querySelector('.alert2').classList.add('showAlert')
+			}
+		})
+		copy.addEventListener('click', ()=>{
+			navigator.clipboard.writeText(EncryptInput.value)
+		})
+	</script>
+</body>
+</html>
